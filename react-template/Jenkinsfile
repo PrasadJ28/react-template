@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = "nbrc-portal-services"
+        IMAGE_NAME = "react-template-image"
     }
     stages {
         stage('Clone Repository') {
@@ -13,7 +13,10 @@ pipeline {
             steps {
                 script {
                     def imageName = "${env.IMAGE_NAME}:${env.BUILD_ID}"
-                    docker.build(imageName)
+                    // Navigate to the react-template directory to build the Docker image
+                    dir('react-template') {
+                        docker.build(imageName, ".")
+                    }
                 }
             }
         }
@@ -21,7 +24,7 @@ pipeline {
             steps {
                 script {
                     // Path to save the Docker image tar file within the Jenkins repository directory
-                    def saveDir = "C:\\ProgramData\\Jenkins\\.jenkins"
+                    def saveDir = "C:\\ProgramData\\Jenkins\\.jenkins\\${env.JOB_NAME}"
                     def savePath = "${saveDir}\\${env.IMAGE_NAME}-${env.BUILD_ID}.tar"
                     
                     // Create the directory if it doesn't exist

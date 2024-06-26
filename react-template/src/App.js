@@ -7,19 +7,16 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
+    
     <ThemeProvider theme={appTheme}>
       <div className="App">
-          
-      
         <main>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <Outlet/>
-                    
+                    <Outlet/>   
                 </Suspense>
         </main>
         </div>
     </ThemeProvider>
-   
   );
 }
 

@@ -1,0 +1,8 @@
+{
+    "common-text-login-username": "Username/Email",
+    "common-text-login-password":"Password",
+    "common-text-login-lgnBtn":"Login",
+    "common-text-login-username-error": "Username/Email is required",
+    "common-text-login-password-error": "Password is required"
+
+}

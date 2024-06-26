@@ -7,11 +7,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import router from './routes/Routes';
+import { Provider } from 'react-redux';
+import appStore from "./store/appStore";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={appStore}>
+      <RouterProvider router={router} />
+    </Provider>
+    
   </React.StrictMode>
 );
 

@@ -1,20 +1,20 @@
-# Use the official Node 20.15-alpine image as the base image
-FROM node:20.15-alpine
+FROM node:20.15
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of your application code
 COPY . .
 
-# Expose the port that the app runs on
+# Set the NODE_OPTIONS environment variable
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
+# Expose the port the app runs on
 EXPOSE 3000
 
-# Start the React application
+# Start the application
 CMD ["npm", "start"]

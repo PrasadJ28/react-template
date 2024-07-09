@@ -3,6 +3,7 @@ import { ReducerActions } from "../reducers/ReducerActions"
 
 
 export const incrementCounter = createAction(ReducerActions.INCREMENT, (counter) => {
+    console.log("Increment")
     return {
         payload: {
             counter

@@ -1,15 +1,22 @@
-import { createReducer, current } from "@reduxjs/toolkit";
-import { ReducerActions } from "../ReducerActions";
-const initialState = {counter:0}
+import { createSlice } from "@reduxjs/toolkit";
 
-export const dashboardReducer = createReducer(initialState, (builder) =>{
-        builder.addCase(ReducerActions.INCREMENT, (state, action)=>{
-            console.log('before', current(state))
-            return state.counter++
-        })
-        .addCase(ReducerActions.DECREMENT, (state, action) =>{
-            return state.counter--
-        })
-        .addDefaultCase((state, action) => {})
-    }
-)
+
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: { value: 0 },
+    reducers: {
+      increment: (state) => {
+        console.log("increment slice")
+        state.value += 1;
+      },
+      decrement: (state) => {
+        state.value -= 1;
+      },
+      incrementByAmount: (state, action) => {
+        state.value += action.payload;
+      },
+    },
+  });
+  
+  export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+  export default counterSlice.reducer;

@@ -1,23 +1,28 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import NavBar from "../componenets/ui/NavBar";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { decrementCounter, incrementCounter } from "../store/actions/dashboardActions";
+import {increment, decrement} from '../store/reducers/dashboard/dashBoardReducer'
 
 
 
 
 function Layout() {
-   // const [counter, incrementCounter]=useState(0);
+
     const dispatch = useDispatch();
-    const inputRef = useRef(null);
-    const counter = useSelector(state => state.counter)
+
+    const counter = useSelector((state) => state.counter?state.counter.value:0);
     return (
         <div>
             <NavBar/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div>Hello</div>
             <div>{counter}</div>
-            <Button onClick={(counter) => dispatch(incrementCounter)} label={"Button"}/>
-            <Button onClick={(counter) => dispatch(decrementCounter)} label={"Button"}/>
+            <Button onClick={()=>dispatch(increment())}>Increment</Button>
+            <Button onClick={()=>dispatch(decrement())}>Decrement</Button>
         </div>
     );
 }

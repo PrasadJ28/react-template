@@ -7,9 +7,11 @@
 # You can add other services your application may depend on here, such as a
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
-services:
+version: '3.8'
+
+services: 
   react-app:
-    container_name: my-react-app
+    container_name: portal-services
     build: .
     ports:
       - "3000:3000"

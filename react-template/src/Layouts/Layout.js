@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../componenets/ui/NavBar";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import {incrementAction, decrementAction} from '../store/reducers/dashboard/dashBoardReducer'
+import {increment, decrement} from '../store/reducers/dashboard/dashBoardReducer'
 
 
 
@@ -21,8 +21,8 @@ function Layout() {
             <br/>
             <div>Hello</div>
             <div>{counter}</div>
-            <Button onClick={()=>dispatch(incrementAction())}>Increment</Button>
-            <Button onClick={()=>dispatch(decrementAction())}>Decrement</Button>
+            <Button onClick={()=>dispatch(increment())}>Increment</Button>
+            <Button onClick={()=>dispatch(decrement())}>Decrement</Button>
         </div>
     );
 }

@@ -1,11 +1,11 @@
-export const increment = (state) => {
+export const incrementAction = (state) => {
     state.value += 1;
   };
   
-export const decrement = (state) => {
+export const decrementAction = (state) => {
     state.value -= 1;
   };
   
-export const incrementByAmount = (state, action) => {
+export const incrementByAmountAction = (state, action) => {
     state.value += action.payload;
   };

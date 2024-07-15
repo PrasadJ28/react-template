@@ -14,6 +14,10 @@ const router = createBrowserRouter([
         errorElement: <Error404 />,
         children: [
             {
+                path: PathConstants.DEFAULT,
+                element: <Login/>,
+            },
+            {
                 path: PathConstants.HOME,
                 element: <Layout/>,
             },

@@ -3,17 +3,21 @@ import { Button, CardActionArea, CardContent, Input, Typography } from "@mui/mat
 import Card from '@mui/material/Card';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
+import { userLogin } from '../../services/loginService';
 
 export default function LoginBox(){
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data);
-        navigate("/home");
+       // 
+       const response = await userLogin(data);
+       navigate('/home');
+       
     }
 
     return (
-        <form onSubmit ={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
              <Card sx={{ maxWidth: 345 }} align={"center"}>
                 <CardActionArea>
                     <CardContent>
